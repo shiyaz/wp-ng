@@ -1,0 +1,21 @@
+<section>
+    <form>
+        <label for="rowsInput">Rows: </label>
+        <input id="rowsInput" type="text" size="5" placeholder="Rows"
+               ng-model="dimensions.rows" title="Rows must be between {{dimensions.minimum}} and {{dimensions.maximum}}">
+        <label for="rowsInput">Columns: </label>
+        <input id="colsInput" type="text" size="5" placeholder="Columns"
+               ng-model="dimensions.cols" title="Columns must be between {{minimum}} and {{maximum}}">
+        <button ng-click="resizeBoard()">Resize</button>
+        <button ng-click="stop()" ng-disabled="stopped" title="Stop the simulation">Stop</button>
+        <button ng-click="start()" ng-disabled="!stopped" title="Start the simulation">Start</button>
+    </form>
+</section>
+
+<section>
+    <span>Current population: {{population}} </span>
+    <div ng-repeat="row in board">
+            <span ng-repeat="cell in row" class="cell-{{cell.thisGen}}"
+                  ng-click="toggle(cell)">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+</section>
